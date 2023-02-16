@@ -1,2 +1,3 @@
-function scrapper() {}
-export default function getLinks() {}
+import scrapperPuppeteer from "./usingPuppeteer.js";
+
+export default { scrapperPuppeteer };
