@@ -1,3 +1,3 @@
-import scrapperPuppeteer from "./usingPuppeteer.js";
-
-export default { scrapperPuppeteer };
+import puppeteerScrapper from "./usingPuppeteer.js";
+import linkScrapperHTTPS from "./usingHTTPS.js";
+export { puppeteerScrapper, linkScrapperHTTPS };

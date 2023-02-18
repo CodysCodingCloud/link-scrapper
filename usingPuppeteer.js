@@ -1,9 +1,9 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
-
+import save from "./saveToFile";
 const mylink = "https://iapps.courts.state.ny.us/webcivil/ecourtsMain";
 
-export default async function scrapper(url) {
+export default async function puppeteerScrapper(url) {
 	// converts url into a useable format for the save function later
 	url = new URL(url);
 
@@ -24,23 +24,3 @@ export default async function scrapper(url) {
 		url,
 	};
 }
-
-// this function will save contents of the links into `scrappedContent/${url.host}.js`
-const save = function () {
-	const links = this.links;
-	const url = this.url;
-	// creates folder if it does not exist
-	if (!fs.existsSync("scrappedContent")) {
-		fs.mkdirSync("scrappedContent");
-	}
-	// writes the files
-	fs.writeFile(
-		`scrappedContent/${url.host}.js`,
-		JSON.stringify(links),
-		(err) => {
-			if (err) throw err;
-			console.log(" link File saved!");
-		}
-	);
-	return this.links;
-};
