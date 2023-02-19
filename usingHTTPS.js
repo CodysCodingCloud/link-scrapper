@@ -3,7 +3,10 @@ import https from "https";
 // import fs from "fs";
 export default function linkScrapperHTTPS(urlString) {
 	return new Promise((resolve, reject) => {
-		const urlObject = new URL(urlString);
+		let urlObject;
+		if (typeof url === "string") {
+			urlObject = new URL(urlString);
+		}
 		const options = {
 			headers: {
 				Accept:
@@ -49,7 +52,6 @@ export default function linkScrapperHTTPS(urlString) {
 						}
 					}
 				});
-
 				// console.log("chippy", linkList);
 				resolve(linkList);
 			});

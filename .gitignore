@@ -6,4 +6,3 @@ node_modules
 *.code-workspace
 scrappedContent
 package-lock.json
-test*
