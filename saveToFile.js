@@ -1,6 +1,7 @@
+import fs from "fs";
 // this function will save contents of the links into `scrappedContent/${url.host}.js`
-export default save = function () {
-	const links = this.links;
+export default function save() {
+	const links = this;
 	const url = this.url;
 	// creates folder if it does not exist
 	if (!fs.existsSync("scrappedContent")) {
@@ -16,4 +17,4 @@ export default save = function () {
 		}
 	);
 	return this.links;
-};
+}

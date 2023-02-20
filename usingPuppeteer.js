@@ -1,6 +1,5 @@
 import puppeteer from "puppeteer";
-import fs from "fs";
-import save from "./saveToFile";
+import save from "./saveToFile.js";
 const mylink = "https://iapps.courts.state.ny.us/webcivil/ecourtsMain";
 
 export default async function puppeteerScrapper(url) {
@@ -20,9 +19,7 @@ export default async function puppeteerScrapper(url) {
 	// closes browser
 	await browser.close();
 
-	return {
-		links,
-		save,
-		url,
-	};
+	links.__proto__.save = save;
+	links.__proto__.url = url;
+	return links;
 }

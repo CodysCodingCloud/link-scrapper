@@ -1,26 +1,19 @@
 # Link Scrapper
 
-Included in this nodejs module is, a web scraper that can scrape a website's links. There are two options on how this module would scrape the links. One option uses the Puppeteer package to scrape the links. The other option uses a http/https request to scrape the website, and regex to parse the respone to obtain the links.
+Included in this nodejs module is, a web scraper that can scrape a website's links and return them in an Array. There are two options on how this module would scrape the links. One option uses the Puppeteer package to scrape the links. The other option uses a http/https request to scrape the website, and regex to parse the respone to obtain the links.
 
 ## Usage
 
 ### Puppeteer version
 
-The puppeteer version requires more overrhead because it uses a headless browser to complete its work. If using this on WSL, chromium needs to be installed.
+The puppeteer version requires more overrhead because it uses a headless browser to complete its work. If you are using this on WSL, chromium needs to be installed for it to work propery. please refer to .
 
 To scrape links using puppeteer:
 `import { puppeteerScrapper } from "link-scrapper"`
 `const results = puppeteerScrapper(myUrl)`
-This function will return:
-{
-links:['scrapped-links']
-save:function
-url:`myUrl`
-}
 
-To save the results to a `scrappedContent` folder, you can run:
+To save the results you can run:
 `results.save()`
-
 The content will be saved to `scrappedContent/${url.host}.js`
 
 ### Request version
