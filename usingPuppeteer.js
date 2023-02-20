@@ -5,7 +5,9 @@ const mylink = "https://iapps.courts.state.ny.us/webcivil/ecourtsMain";
 
 export default async function puppeteerScrapper(url) {
 	// converts url into a useable format for the save function later
-	url = new URL(url);
+	if (typeof url === "string") {
+		url = new URL(url);
+	}
 
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
