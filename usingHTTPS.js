@@ -19,7 +19,7 @@ export default function linkScrapperHTTPS(urlString) {
 		// select correct protocol
 		const protol = urlObject.protocol === "http" ? http : https;
 		const req = protol.request(urlObject, options, (res) => {
-			console.log(`statusCode: ${res.statusCode}`);
+			// console.log(`statusCode: ${res.statusCode}`);
 			let data = "";
 			res.on("data", (chunk) => {
 				data += chunk;
@@ -28,7 +28,6 @@ export default function linkScrapperHTTPS(urlString) {
 				// obtail all anchor tags
 				const linkTagRegex = /<a.+>/gi;
 				let linkList = data.match(linkTagRegex);
-				console.log(data);
 				// // obtain href contents and convert to a useable link
 				linkList = linkList.map((e) => {
 					// remove quitation marks
@@ -52,7 +51,6 @@ export default function linkScrapperHTTPS(urlString) {
 						}
 					}
 				});
-				// console.log("chippy", linkList);
 				resolve(linkList);
 			});
 		});
